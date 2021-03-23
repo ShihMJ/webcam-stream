@@ -1,0 +1,25 @@
+body, html
+	margin: 0
+	padding: 0
+
+#camera
+	position: absolute
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+	@media screen and (min-aspect-ratio: 16/9)
+		height: 100%
+		width: calc((16/9)*100vh)
+
+	@media screen and (max-aspect-ratio: 16/9)
+		width: 100%
+		height: calc((9/16)*100vw)
+
+#camera_select
+	position: absolute
+	left: 2%
+	top: 2%
+	opacity: 0.2
+
+	&:hover
+		opacity: 1
