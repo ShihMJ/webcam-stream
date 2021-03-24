@@ -1,6 +1,7 @@
 body, html {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
 #camera {
   position: absolute;
@@ -16,12 +17,53 @@ body, html {
       width: 100%;
       height: calc((9/16)*100vw); } }
 
-#camera_select {
+.config {
   position: absolute;
-  left: 2%;
+  height: 100%;
+  background-color: rgba(170, 170, 170, 0.5);
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  font-size: 20px;
+  backdrop-filter: blur(5px);
+  box-sizing: border-box;
+  transition: 0.5s;
+  transform: translateX(-100%); }
+  .config > * {
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px; }
+  .config .hide_config {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    margin: 0; }
+  .config #camera_select {
+    margin-top: 40px;
+    min-width: 95px; }
+  .config .btn {
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: rgba(238, 238, 238, 0.5);
+    border-radius: 5px;
+    text-align: center;
+    width: 95px; }
+
+.show {
+  transform: translateX(0); }
+
+.show_config {
+  position: absolute;
   top: 2%;
-  opacity: 0.2; }
-  #camera_select:hover {
-    opacity: 1; }
+  left: 2%;
+  font-size: 28px;
+  color: black;
+  opacity: 0.2;
+  cursor: pointer;
+  user-select: none; }
+
+.reversed {
+  transform: translate(-50%, -50%) scaleX(-1) !important; }
 
 /*# sourceMappingURL=index.css.map */

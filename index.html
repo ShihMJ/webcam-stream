@@ -3,10 +3,19 @@
 <head>
 	<title>擷取視訊</title>
 	<link rel="stylesheet" href="index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta charset="UTF-8">
 </head>
 <body>
 	<video id="camera" playsinline autoplay></video>
-	<select id="camera_select"></select>
+	<div class="show_config" id="show_config">≡</div>
+	<div class="config" id="config">
+		<div class="hide_config" id="hide_config">Ｘ</div>
+		<select id="camera_select"></select>
+		<div class="reverse btn" id="reverse_btn">反轉畫面</div>
+		<div class="full_screen btn" id="full_screen">全螢幕</div>
+	</div>
+	
 	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

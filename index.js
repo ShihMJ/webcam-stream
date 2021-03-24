@@ -59,10 +59,60 @@ async function init() {
 		camera_select.addEventListener("change", (e) => {
 			setupCamera(e.target.value);
 		});
+
+		document.getElementById("show_config").addEventListener("click", showConfig);
+		document.getElementById("hide_config").addEventListener("click", hideConfig);
+		document.getElementById("reverse_btn").addEventListener("click", reverseCam);
+		document.getElementById("full_screen").addEventListener("click", toggleFullScreen);
 	} catch (err) {
 		console.log(err);
 	}
 	
+}
+
+function toggleFullScreen() {
+	if (!document.fullscreenElement &&    // alternative standard method
+	!document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+		if (document.documentElement.requestFullscreen) {
+			document.documentElement.requestFullscreen();
+		} else if (document.documentElement.msRequestFullscreen) {
+			document.documentElement.msRequestFullscreen();
+		} else if (document.documentElement.mozRequestFullScreen) {
+			document.documentElement.mozRequestFullScreen();
+		} else if (document.documentElement.webkitRequestFullscreen) {
+			document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+		}
+	} else {
+		if (document.exitFullscreen) {
+			document.exitFullscreen();
+		} else if (document.msExitFullscreen) {
+			document.msExitFullscreen();
+		} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if (document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+		}
+	}
+}
+
+function showConfig() {
+	const config = document.getElementById("config");
+	config.classList.add("show");
+}
+
+function hideConfig() {
+	const config = document.getElementById("config");
+	config.classList.remove("show");
+}
+
+function reverseCam() {
+	const camera = document.getElementById("camera");
+	if (camera.classList.length === 0) {
+		camera.classList.add("reversed");
+	}
+	else {
+		camera.classList.remove("reversed");
+	}
 }
 
 window.onload = init;
